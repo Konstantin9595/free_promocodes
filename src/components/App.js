@@ -1,14 +1,24 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import Search from './Search'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { connect } from 'react-redux'
+import fetchData from '../reducers'
+import { fetchAllServices } from "../actions/actions";
 
 // import DirectionsIcon from '@material-ui/icons/Directions';
 
 
 class App extends React.Component {
+
+    constructor(props){
+        super(props)
+        this.services = props.content.data
+    }
+
     render() {
+        console.log("STORE = ", this.services)
         return (
             <div className="App">
                 <Grid container spacing={8}>
@@ -36,7 +46,14 @@ class App extends React.Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    // console.log("state in mapStateToProps = ", state)
+    return {
+        content: fetchData(state, fetchAllServices())
+    }
+}
+
+export default connect(mapStateToProps)(App);
 
 // Components
 // App
