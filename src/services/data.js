@@ -116,7 +116,7 @@ const data = { bonuses:
         { title: 'getuniq.me',
             description: 'Контекстная реклама',
             link: 'http://travelpayouts.getuniq.me',
-            promocode: 'travelpayouts' } ] }
+            promocode: 'test' } ] }
 
 export default class TestData {
     fetchData = () => {

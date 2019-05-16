@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import fetchServices from './fetchData'
+import fetchDataReducer from './fetchDataReducer'
 
 const rootReducer = combineReducers({
-    data: fetchServices
+    store: fetchDataReducer,
 })
 
 export default rootReducer
