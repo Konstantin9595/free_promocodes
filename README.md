@@ -1,7 +1,7 @@
-Friend list application
+Free promo codes
 =====================
 
-Simple React+Redux application for managing friends list.
+Simple React+Redux application for search and copy free promo codes.
 
 ### Usage
 
