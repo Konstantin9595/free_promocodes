@@ -24,13 +24,11 @@ const styles = theme => ({
 class Content extends Component {
 
     state = {
-        // value: null,
         copied: false,
     };
 
     render() {
         const { classes, state } = this.props
-        console.log("Default store = ", state)
         return (
             <div className="class-root">
                 {
@@ -76,4 +74,4 @@ Content.propTypes = {
     state: PropTypes.array.isRequired
 }
 
-export default withStyles(styles)(Content);
+export default withStyles(styles)(Content)

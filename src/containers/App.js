@@ -5,12 +5,12 @@ import Content from '../components/Content'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux'
-
+import { searchDataAction } from '../actions/searchDataAction'
 
 class App extends React.Component {
     render() {
 
-        const { state } = this.props
+        const { state, searchDataAction } = this.props
 
         return (
             <div className="App">
@@ -21,7 +21,7 @@ class App extends React.Component {
                         </Paper>
                     </Grid>
                     <Grid xs={2}>
-                        <Search />
+                        <Search searchDataAction={searchDataAction} />
                     </Grid>
                     <Grid xs={12}>
                         <Paper>
@@ -36,23 +36,21 @@ class App extends React.Component {
     }
 }
 
-// state - в данном случае это store редьюсера. Или редьюсеров(в случае если их несколько и они скомбинированны)
 const mapStateToProps = (state) => {
     return {
-        state: state.store
-        // content: state.data, //return fetchDataReducer combine
+        state: state.store.bonuses
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         searchDataAction: (name) => dispatch(searchDataAction(name))
-//     }
-// }
+const mapDispatchToProps = dispatch => {
+    return {
+        searchDataAction: (name) => dispatch(searchDataAction(name))
+    }
+}
 
 
 
 export default connect(
     mapStateToProps,
-    // mapDispatchToProps
+    mapDispatchToProps
 )(App);
