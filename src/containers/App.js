@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import './App.css';
 import Search from '../components/Search'
 import Content from '../components/Content'
 import Paper from '@material-ui/core/Paper';
@@ -15,16 +15,16 @@ class App extends React.Component {
         return (
             <div className="container">
                 <Grid container spacing={8}>
-                    <Grid xs={12}>
+                    <Grid xs={12} className="grid-promocodes">
                         <Paper>
                             <h1>Бесплатные промокоды</h1>
                         </Paper>
                     </Grid>
-                    <Grid xs={12}>
+                    <Grid xs={12} className="grid-search">
                         <Search searchDataAction={searchDataAction} />
                     </Grid>
-                    <Grid xs={12}>
-                        <Paper>
+                    <Grid xs={12} className="grid-content">
+                        <Paper className="grid__content-paper">
                             <Content state={state}/>
                         </Paper>
                     </Grid>

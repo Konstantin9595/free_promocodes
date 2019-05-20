@@ -3,20 +3,49 @@ import PropTypes from 'prop-types'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import InputLabel from '@material-ui/core/InputLabel';
+import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import { withStyles } from '@material-ui/core/styles';
 import './Content.css'
 
-export default class Content extends Component {
+const styles = theme => ({
+    input: {
+        textDecorationStyle: 'solid'
+    },
+});
+
+
+class Content extends Component {
 
     state = {
         copied: false,
+        copiedItem: null
     };
 
-    render() {
-        const { state } = this.props
+    onClick = (e) => {
+        const attr = parseInt(e.target.getAttribute("ndx"))
+        this.setState({copiedItem: attr})
+    }
 
-        const paper = state.map((el, ndx) => {
+    onCopy = () => {
+        this.setState({copied: true})
+    }
+
+
+    render() {
+        const { state, classes:{ input } } = this.props
+        const { copied, copiedItem } = this.state
+        //const isClass = copied
+        //console.log("copiedItem = ", copiedItem)
+
+        const paper = state.map((el) => {
+            const clazz = (copied && el.id === copiedItem ? "far fa-copy clipboard-color" : "far fa-copy")
+
             return (
-                <Paper key={ ndx } className="paper" elevation={1}>
+                <Paper key={ el.id } className="paper" elevation={1}>
                     <div className="content-container">
                         <div className="left-content">
                             <div className="left__content-title">
@@ -33,8 +62,16 @@ export default class Content extends Component {
                         <div className="right-content">
                             <div className="right__content-promocodes">
                                 <CopyToClipboard text={el.promocode}
-                                                 onCopy={() => this.setState({copied: true})}>
-                                    <button>Copy to clipboard</button>
+                                                 onCopy={this.onCopy}
+                                                 className="clipboard">
+                                    <FormControl className="clipboard-control">
+                                        <InputLabel htmlFor="custom-css-standard-input">
+                                            {el.promocode}
+                                        </InputLabel>
+                                        <FormHelperText>Промокод:</FormHelperText>
+                                        <Input index={el.id} className="customize-input" disabled disableUnderline={true} />
+                                        <i className={clazz} ndx={el.id} onClick={this.onClick}></i>
+                                    </FormControl>
                                 </CopyToClipboard>
                             </div>
                         </div>
@@ -54,5 +91,8 @@ export default class Content extends Component {
 
 
 Content.propTypes = {
-    state: PropTypes.array.isRequired
+    state: PropTypes.array.isRequired,
+    classes: PropTypes.object.isRequired,
 }
+
+export default withStyles(styles)(Content);

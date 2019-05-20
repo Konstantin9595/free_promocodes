@@ -5,8 +5,50 @@
 
 .content-container {
     display: flex;
+    padding: 10px 0;
 }
 
 .paper {
     margin-top: 20px;
+}
+
+.left-content,
+.right-content {
+    flex-grow: 1;
+}
+
+.right-content {
+    display: flex;
+    align-items: center;
+}
+
+.left-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.customize-input {
+    border-bottom: 1px solid #ccc;
+}
+
+.fa-copy {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #ccc;
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+
+.clipboard {
+
+}
+
+.clipboard .clipboard-control {
+
+}
+
+.clipboard-color {
+    color: #2385ff;
 }

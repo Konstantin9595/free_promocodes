@@ -32,7 +32,24 @@
   /*}*/
 /*}*/
 
+a {
+    color: #2385ff;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.grid-promocodes {
+    text-align: center;
+    font-weight: lighter;
+}
+
+.grid-content {
+
+}
+
+.grid-content .grid__content-paper {
+    box-shadow: none;
 }
