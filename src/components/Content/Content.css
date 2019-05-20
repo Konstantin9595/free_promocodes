@@ -1,0 +1,12 @@
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container {
+    display: flex;
+}
+
+.paper {
+    margin-top: 20px;
+}

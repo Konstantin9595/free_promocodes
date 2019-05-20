@@ -13,21 +13,19 @@ class App extends React.Component {
         const { state, searchDataAction } = this.props
 
         return (
-            <div className="App">
+            <div className="container">
                 <Grid container spacing={8}>
                     <Grid xs={12}>
                         <Paper>
                             <h1>Бесплатные промокоды</h1>
                         </Paper>
                     </Grid>
-                    <Grid xs={2}>
+                    <Grid xs={12}>
                         <Search searchDataAction={searchDataAction} />
                     </Grid>
                     <Grid xs={12}>
                         <Paper>
-                            <div className="container">
-                                <Content state={state}/>
-                            </div>
+                            <Content state={state}/>
                         </Paper>
                     </Grid>
                 </Grid>

@@ -12,3 +12,8 @@ yarn install
 yarn start
 open http://localhost:3000
 ```
+
+```
+2. Отображение доделать по макету (https://github.com/KosyanMedia/Front-end_TP_test)
+3. При нажатие на иконку копирования. Говориться информация о том что данные скопированны
+```

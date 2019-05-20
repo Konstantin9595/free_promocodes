@@ -31,3 +31,9 @@ export default class Search extends React.Component {
 Search.propTypes = {
     searchDataAction: PropTypes.func.isRequired
 }
+
+// Redux хранит в себе состояние всего приложения
+// Что бы изменить это состояние приложения, у redux существуют reducers
+// Которые меняют состояния и возвращают новое состояние
+// Что бы редюсерам дать команду на изменения состояние, необходимо вызвать action
+// В мамент вызова action reducer отловит этот вызов и произведет изменение состояния.
